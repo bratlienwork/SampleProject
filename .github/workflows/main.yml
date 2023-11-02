@@ -10,7 +10,7 @@ jobs:
       matrix:
         dotnet-version: [ '3.1.x', '6.0.x' ]
 
-      steps:
+    steps:
         - name: Setup .NET 6.x
           uses: actions/setup-dotnet@v3
           with:
