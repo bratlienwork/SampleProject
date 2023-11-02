@@ -18,8 +18,6 @@ jobs:
             dotnet-version: '6.x'
         - name: Install dependencies
           run: dotnet restore
-        - name: Go to local folder
-          run: cd C:/Users/akaivalliam/source/repos/SampleProject/SampleProject
         - name: Test with dotnet test
           run: dotnet test "SampleProject.csproj" --no-build --verbosity normal --logger:"junit;LogFilePath=test-result.xml"
         - name: Upload dotnet test results
