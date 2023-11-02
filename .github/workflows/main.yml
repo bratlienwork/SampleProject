@@ -11,12 +11,13 @@ jobs:
         dotnet-version: [ '6.0.x' ]
 
     steps:
+        - uses: actions/checkout@v4
         - name: Setup .NET 6.x
           uses: actions/setup-dotnet@v3
           with:
             dotnet-version: '6.x'
         - name: Install dependencies
-          run: dotnet build
+          run: dotnet restore
         - name: Go to local folder
           run: cd C:/Users/akaivalliam/source/repos/SampleProject/SampleProject
         - name: Test with dotnet test
