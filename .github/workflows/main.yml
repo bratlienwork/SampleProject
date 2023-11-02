@@ -18,7 +18,7 @@ jobs:
         - name: Install dependencies
           run: dotnet build
         - name: Test with dotnet
-          run: dotnet test "SampleProject.csproj" --no-build --verbosity normal --logger:"junit;LogFilePath=test-result.xml"
+          run: dotnet test "C:/Users/akaivalliam/source/repos/SampleProject/SampleProject/SampleProject.csproj" --no-build --verbosity normal --logger:"junit;LogFilePath=test-result.xml"
         - name: Upload dotnet test results
           uses: actions/upload-artifact@v3
           with:
