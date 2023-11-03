@@ -27,3 +27,16 @@ jobs:
             path: "test-result.xml"
           # Use always() to always run this step to publish test results when there are test failures
           if: ${{ always() }}
+        - name: qTest_Parser
+          run: |
+             echo -e Start upload Results________________________________________________
+             NewTestCycle=4555538
+		         qTestProject=106715
+             qTestPULSEURL="https://pulse-7.qtestnet.com/webhook/53b32c57-368c-4b9b-a4e0-af11389c5438"
+             for file in $( find -type f -name "*.xml")
+              do
+                echo -e "Working on file -----------------------------------> $file"
+                Parser_Response=$(curl --request POST $qTestPULSEURL -d "projectId=$qTestProject" -d "testcycle=$NewTestCycle" -d "result=$(echo $(cat $file) | basenc --base64url | tr -d \\n)" )             
+              done  
+             echo -e end upload Results________________________________________________
+         
